@@ -1,43 +1,19 @@
-# 医药企业流向管理系统 - 前端
+# 医药流向管理系统 - 前端开发指南
 
-## 项目简介
+## 开发环境配置
 
-本项目是医药企业流向管理系统的前端部分，使用 React + TypeScript + Vite 构建。
-
-## 技术栈
-
-- React 18.x
-- TypeScript 5.x
-- Vite
-- Material-UI (MUI)
-- Redux Toolkit
-- React Router
-- Axios
-
-## 开发环境要求
-
+### 必需工具
 - Node.js >= 18.0.0
 - npm >= 9.0.0
+- VSCode（推荐）
 
-## 项目结构
+### 推荐的 VSCode 插件
+- ESLint
+- Prettier
+- ES7+ React/Redux/React-Native snippets
+- Material-UI Snippets
 
-```
-frontend/
-├── src/                # 源代码目录
-│   ├── api/           # API 接口定义
-│   ├── components/    # 通用组件
-│   ├── hooks/         # 自定义 Hooks
-│   ├── layouts/       # 布局组件
-│   ├── pages/         # 页面组件
-│   ├── store/         # Redux 状态管理
-│   ├── styles/        # 全局样式
-│   ├── types/         # TypeScript 类型定义
-│   └── utils/         # 工具函数
-├── public/            # 静态资源
-└── tests/             # 测试文件
-```
-
-## 开发指南
+## 本地开发
 
 ### 安装依赖
 ```bash
@@ -54,91 +30,79 @@ npm run dev
 npm run build
 ```
 
-### 运行测试
+### 代码检查
+```bash
+npm run lint
+```
+
+## 项目结构说明
+
+```
+src/
+├── api/           # API 接口定义和 Axios 配置
+├── components/    # 可复用的组件
+├── hooks/         # 自定义 React Hooks
+├── layouts/       # 页面布局组件
+├── pages/         # 页面组件
+├── store/         # Redux 状态管理
+├── styles/        # 全局样式和主题
+└── utils/         # 工具函数
+```
+
+## 开发规范
+
+### 组件开发规范
+- 使用函数组件和 Hooks
+- 遵循组件命名约定
+- 实现组件的错误边界
+- 使用 PropTypes 或 TypeScript 类型
+
+### TypeScript 使用规范
+- 为所有 props 定义接口
+- 使用类型而不是 any
+- 利用泛型增强代码复用性
+
+### 状态管理
+- 使用 Redux Toolkit
+- 遵循 Redux 最佳实践
+- 适当使用 React Context
+
+### 样式开发
+- 使用 Material-UI 的样式解决方案
+- 遵循主题定制规范
+- 保持样式的模块化
+
+## 测试指南
+
+### 单元测试
 ```bash
 npm test
 ```
 
-## 代码规范
+### 组件测试
+- 使用 React Testing Library
+- 编写可访问性测试
+- 测试用户交互
 
-- 使用 ESLint 进行代码检查
-- 使用 Prettier 进行代码格式化
-- 遵循项目的 TypeScript 配置
-- 组件和函数使用 JSDoc 注释
+## 构建和部署
 
-## 提交规范
+### 环境变量配置
+- 开发环境：`.env.development`
+- 生产环境：`.env.production`
 
-提交信息格式：
-```
-<类型>: <描述>
+### 构建优化
+- 代码分割策略
+- 资源优化建议
+- 性能优化措施
 
-[可选的详细描述]
+## 常见问题
 
-[可选的脚注]
-```
+### 开发环境问题
+1. 端口占用解决方案
+2. 热重载失效解决方案
+3. 依赖冲突解决方案
 
-类型包括：
-- feat: 新功能
-- fix: 修复问题
-- docs: 文档修改
-- style: 代码格式修改
-- refactor: 代码重构
-- test: 测试用例修改
-- chore: 其他修改
-
-## 注意事项
-
-1. 确保代码提交前已经通过所有测试
-2. 保持代码风格一致性
-3. 及时更新文档
-4. 遵循组件设计原则
-5. 注意性能优化
-
-## 相关文档
-
-- [React 官方文档](https://reactjs.org/)
-- [Material-UI 文档](https://mui.com/)
-- [TypeScript 文档](https://www.typescriptlang.org/)
-- [Vite 文档](https://vitejs.dev/)
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### 构建问题
+1. 构建失败排查步骤
+2. 性能问题优化建议
+3. 兼容性问题解决方案
