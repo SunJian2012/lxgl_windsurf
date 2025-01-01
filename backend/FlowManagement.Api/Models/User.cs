@@ -18,40 +18,43 @@ namespace FlowManagement.Api.Models
         /// </summary>
         [Required]
         [MaxLength(50)]
-        public string Username { get; set; }
+        public required string Username { get; set; }
 
         /// <summary>
         /// 密码哈希
         /// </summary>
         [Required]
         [MaxLength(100)]
-        public string PasswordHash { get; set; }
+        public required string PasswordHash { get; set; }
 
         /// <summary>
         /// 姓名
         /// </summary>
+        [Required]
         [MaxLength(50)]
-        public string? Name { get; set; }
+        public required string Name { get; set; }
 
         /// <summary>
         /// 邮箱
         /// </summary>
+        [Required]
         [MaxLength(100)]
         [EmailAddress]
-        public string? Email { get; set; }
+        public required string Email { get; set; }
 
         /// <summary>
         /// 手机号
         /// </summary>
+        [Required]
         [MaxLength(20)]
-        public string? Phone { get; set; }
+        public required string Phone { get; set; }
 
         /// <summary>
         /// 角色（Admin、User等）
         /// </summary>
         [Required]
         [MaxLength(20)]
-        public string Role { get; set; }
+        public required string Role { get; set; }
 
         /// <summary>
         /// 创建时间
